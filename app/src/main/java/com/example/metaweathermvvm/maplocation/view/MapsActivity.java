@@ -38,7 +38,6 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     RecyclerView recyclerView;
     double latitude,longitude;
     ForecastViewModel forecastViewModel;
-    MapViewModel mapViewModel;
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
