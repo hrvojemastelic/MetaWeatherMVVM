@@ -35,7 +35,7 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MainActivity extends AppCompatActivity   {
+public class MainActivity extends AppCompatActivity  implements LifecycleOwner  {
     public static final int REQUEST_CODE_LOCATION_PERMISSION=1;
     private RecyclerView recyclerView;
     public List<ConsolidatedWeather> consolidatedWeatherslist=new ArrayList<>();
