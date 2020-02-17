@@ -1,22 +1,22 @@
 package com.example.metaweathermvvm.maplocation.view;
 
+import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.TextView;
+
 import androidx.fragment.app.FragmentActivity;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.os.Bundle;
-import android.view.View;
-import android.widget.Button;
-import android.widget.TextView;
-
 import com.example.metaweathermvvm.R;
 import com.example.metaweathermvvm.adapter.ForecastAdapter;
-import com.example.metaweathermvvm.viewmodel.ForecastViewModel;
 import com.example.metaweathermvvm.pojo.ConsolidatedWeather;
 import com.example.metaweathermvvm.pojo.LocationModel;
 import com.example.metaweathermvvm.pojo.ResponseModel;
+import com.example.metaweathermvvm.viewmodel.ForecastViewModel;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
@@ -38,7 +38,6 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     RecyclerView recyclerView;
     double latitude,longitude;
     ForecastViewModel forecastViewModel;
-    MapViewModel mapViewModel;
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

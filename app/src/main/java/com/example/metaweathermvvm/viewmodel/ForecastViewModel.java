@@ -20,7 +20,7 @@ public class ForecastViewModel extends AndroidViewModel {
          public ForecastViewModel(@NonNull Application application) {
             super(application);
 
-            weatherRepository=new ForecastRepository();
+            weatherRepository=new ForecastRepository(application);
              this.locationLiveData=weatherRepository.getLocation();
              this.forecastResponseLiveData=weatherRepository.getForecastFivee();
                 this.citynameLiveData=weatherRepository.getByCityName();

@@ -1,5 +1,7 @@
 package com.example.metaweathermvvm.repository;
 
+import android.content.Context;
+
 import androidx.lifecycle.MutableLiveData;
 
 import com.example.metaweathermvvm.pojo.LocationModel;
@@ -7,7 +9,6 @@ import com.example.metaweathermvvm.pojo.ResponseModel;
 import com.example.metaweathermvvm.retrofit.ApiClient;
 import com.example.metaweathermvvm.retrofit.ApiInterface;
 
-import java.util.Collections;
 import java.util.List;
 
 import retrofit2.Call;
@@ -16,11 +17,21 @@ import retrofit2.Response;
 
 public class ForecastRepository {
     private ApiInterface apiRequest;
+    private static ForecastRepository INSTANCE;
 
     final MutableLiveData<ResponseModel> responseModelMutableLiveData = new MutableLiveData<>();
     final MutableLiveData<List<LocationModel>> mutableLiveDataCityName= new MutableLiveData<>();
     final MutableLiveData<List<LocationModel>> locationMutableLiveData = new MutableLiveData<>();
-    public ForecastRepository() {
+
+    public static   ForecastRepository getInstance(Context context){
+        if ( INSTANCE == null){
+            INSTANCE=new ForecastRepository(context.getApplicationContext());
+        }
+        return INSTANCE;
+    }
+
+
+    public ForecastRepository(Context aplicationContext) {
         apiRequest = ApiClient.getRetrofitInstance().create(ApiInterface.class);
 
     }

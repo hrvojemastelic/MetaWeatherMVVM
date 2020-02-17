@@ -1,15 +1,5 @@
 package com.example.metaweathermvvm.currentandsearchlocation.view;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.SearchView;
-import androidx.core.app.ActivityCompat;
-import androidx.core.content.ContextCompat;
-import androidx.lifecycle.Observer;
-import androidx.lifecycle.ViewModelProviders;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
 import android.Manifest;
 import android.content.Intent;
 import android.content.pm.PackageManager;
@@ -19,13 +9,24 @@ import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.SearchView;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
+import androidx.lifecycle.LifecycleOwner;
+import androidx.lifecycle.Observer;
+import androidx.lifecycle.ViewModelProviders;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
 import com.example.metaweathermvvm.R;
 import com.example.metaweathermvvm.adapter.ForecastAdapter;
-import com.example.metaweathermvvm.viewmodel.ForecastViewModel;
 import com.example.metaweathermvvm.maplocation.view.MapsActivity;
 import com.example.metaweathermvvm.pojo.ConsolidatedWeather;
 import com.example.metaweathermvvm.pojo.LocationModel;
 import com.example.metaweathermvvm.pojo.ResponseModel;
+import com.example.metaweathermvvm.viewmodel.ForecastViewModel;
 import com.google.android.gms.location.LocationCallback;
 import com.google.android.gms.location.LocationRequest;
 import com.google.android.gms.location.LocationResult;
@@ -35,7 +36,7 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MainActivity extends AppCompatActivity   {
+public class MainActivity extends AppCompatActivity  implements LifecycleOwner {
     public static final int REQUEST_CODE_LOCATION_PERMISSION=1;
     private RecyclerView recyclerView;
     public List<ConsolidatedWeather> consolidatedWeatherslist=new ArrayList<>();
